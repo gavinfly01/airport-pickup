@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "Airport Pickup Order Matching System",
+    "_postman_id": "f6b8b870-8a5f-4e9b-bf30-9f8a0e7c6e3c",
+    "description": "Postman collection for CertiK interview project: Airport Pickup Order Matching System.\nIncludes passenger creation, driver creation, pickup requests, driver offers, and booking operations.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Passenger",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Alice\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["passengers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Driver",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Bob\",\"rating\":4.9}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/drivers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["drivers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Pickup Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"passenger_id\":\"174b032d1244ea6320a77041c034bd8f\",\"airport_code\":\"SFO\",\"vehicle_type\":\"sedan\",\"desired_time\":\"2025-11-05T10:00:00Z\",\"max_price_per_km\":2.5,\"prefer_high_rating\":true}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/pickup_requests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["pickup_requests"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Driver Offer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"driver_id\":\"0bd803342d1661d5380c833f04929417\",\"airport_code\":\"SFO\",\"vehicle_type\":\"sedan\",\"available_from\":\"2025-11-05T09:00:00Z\",\"available_to\":\"2025-11-05T12:00:00Z\",\"price_per_km\":2.0}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/driver_offers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["driver_offers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Bookings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/bookings",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["bookings"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Complete Booking",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/bookings?id=ed6c04d6777b4d782f312519623fdf18",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["bookings"],
+          "query": [
+            { "key": "id", "value": "ed6c04d6777b4d782f312519623fdf18" }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
